@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "55d7fe251051636ba3dc556e7390c780",
+    "revision": "9c410cad52358bb06906cdeead51ef45",
     "url": "/kidskating.ru/index.html"
   },
   {
-    "revision": "8cb691f9909bb2438871",
-    "url": "/kidskating.ru/static/css/main.e1fac59a.chunk.css"
+    "revision": "3c0749f4cd9ed98602d1",
+    "url": "/kidskating.ru/static/css/main.a60e2bdc.chunk.css"
   },
   {
     "revision": "d82d21461d078db519f6",
     "url": "/kidskating.ru/static/js/2.d6453bc3.chunk.js"
   },
   {
-    "revision": "8cb691f9909bb2438871",
+    "revision": "3c0749f4cd9ed98602d1",
     "url": "/kidskating.ru/static/js/main.acbf5860.chunk.js"
   },
   {

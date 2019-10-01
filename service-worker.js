@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/kidskating.ru/precache-manifest.9c8009bb4a93c2df9afc0b8a20c122b7.js"
+  "/kidskating.ru/precache-manifest.785217aa99c3aa1dc6820fb39609b5e3.js"
 );
 
 self.addEventListener('message', (event) => {
