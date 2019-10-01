@@ -1,0 +1,17 @@
+.by-wrapper-icon-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 25px;
+
+    background-color: white;
+
+    cursor: pointer;
+    transition: background-color .5s;
+}
+
+.by-wrapper-icon-social:hover {
+    background-color: #F06787;
+}

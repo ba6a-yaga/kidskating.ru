@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: "Karusel";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: 'Karusel';
+  font-style: normal;
+  font-weight: normal;
+  src:
+          url('./assets/Karusel.ttf') format('truetype'),
+          url('./assets/Karusel.otf') format('otf')
+}
+
+@font-face {
+  font-family: 'Noteworthy';
+  font-style: normal;
+  font-weight: normal;
+  src:
+          url('./assets/Noteworthy.ttc') format('truetype')
+          url('./assets/Noteworthy-Light.otf') format('otf')
+}

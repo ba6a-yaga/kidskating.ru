@@ -1,0 +1,414 @@
+:root {
+  --primary-font: Karusel;
+  --secondary-font: Luicida Grande;
+
+  --primary-color-text: #303030;
+  --primary-color-title: #A2A1A1;
+
+  --secondary-color-text: #FFFFFF;
+  --secondary-color-title: #FFE1E2;
+
+  --primary-color-digit: #FF4D77;
+
+  --primary-bg: #F06787;
+  --secondary-bg: #FFB8C9;
+
+  --medium-margin: 2.5rem;
+  --large-margin: 5rem;
+  font-size: calc(14px+1vw);
+  box-sizing: border-box;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+.clearfix::after {
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+body {
+  background-color: #FFF;
+}
+
+button {
+  font-family: 'Karusel';
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+p {
+  transition: color .25s;
+}
+
+.App {
+  max-width: 1265px;
+  margin: 0 auto;
+
+   
+  
+  .App-header {
+    width:100%;
+      
+    .App-header-banner {
+      margin: 0 auto;
+      overflow: hidden;
+      width: 100%;
+
+      .App-logo {
+        grid-row: 1;
+        grid-column: 1;
+        z-index: 3;
+        margin: 1em 0 0 14em;
+        
+        width: 176px;
+        height: 48px;
+      }
+
+      .App-burger-menu {
+        grid-row: 1;
+        grid-column: 1;
+        z-index:107;
+        margin: 1.5em 0 0 3em;
+
+        width: 36px;
+        height: 34px;
+        --by-burger-color: #FFE1E2;
+
+        .App-main-nav {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          
+
+          a {
+            transition: color .25s;
+            color: #F06787;
+            font-size: 3em;
+            text-decoration: none;
+
+            &:hover {
+              color: #FFB8C9;
+            }
+          }
+
+          p {
+            margin: 0;
+          }
+
+          a + a {
+            margin: 1.5em 0 0 0;
+          }
+
+          
+        }
+      }
+    }
+  }
+
+  .App-main {
+    display: block;
+    // width: 100%;
+
+    .App-title-block {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-top: var(--large-margin);
+      
+      h1 {
+
+      }
+    }
+
+    .App-secondary-banner {
+      width: 100%;
+      margin: var(--medium-margin) 0 0 0;
+    }
+
+    .App-wrapper-description {
+      margin-top: var(--medium-margin);
+      width: 100%;
+      
+      .App-footer-description-digits {
+        height: 460px;
+
+        .App-wrapper-photogallery {
+          margin: -14.5em 0 0 0;
+          display: grid;
+          grid-template-columns: .5fr 1fr 1fr 1fr .5fr 1fr 1fr .5fr;
+          grid-template-rows: .5fr 1fr 1fr;
+          row-gap: .5em;
+          column-gap: .5em;
+
+          .App-img-part {
+            width: 175px;
+            height: 175px;
+            border-radius: 20px;
+            
+            overflow: hidden;
+            // background-color: #F06787;
+
+            img {
+              width:100%;
+            }
+          
+          }
+
+          .n1st {
+            grid-column: 2;
+            grid-row: 2 / span 3;
+            align-self: center;
+          }
+
+          .n2nd {
+            grid-column: 3;
+            grid-row: 2; 
+          }
+
+          .n3th {
+            grid-column: 3;
+            grid-row: 3;
+          }
+
+          .n4th {
+            grid-column: 4 / span 5;
+            grid-row: 1 / span 2;
+
+            width: 275px;
+            height: 275px;
+            border-radius: 20px;
+          }
+          .n5th {
+            grid-column: 4;
+            grid-row: 3;
+          }
+          .n6th {
+            grid-column: 6;
+            grid-row: 2;
+          }
+          .n7th {
+            grid-column: 6;
+            grid-row: 3;
+          }
+          .n8th {
+            grid-column: 7;
+            grid-row: 2 / span 3;
+            align-self: center;
+          }
+        }
+      }
+
+      .App-wrapper-description-digits {
+        display: grid;
+        margin: 0;
+        background-color: #FFF7F2;
+        width: 100%;
+        height: 630px;
+        overflow: hidden;
+
+        .App-wrapper-description-round {
+          display: block;
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .blue {
+          margin: 10em 0 0 -3em;
+        }
+
+        .red {
+          width: 60%;
+          margin: -30em 0 0 40%;
+        }
+
+        .yellow {
+          margin: 18em 0 0 20%;
+        }
+        
+        .App-description {
+          // display: flex;
+          // justify-content: center;
+          grid-column: 1;
+          grid-row: 1;
+          padding-top: var(--medium-margin);
+  
+          .App-description-text {
+            color: #303030;
+            font-size: 0.9em;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            width: 70%;
+            margin: 0 auto;
+          }
+
+          .App-digits {
+            width: calc(160px * 4);
+            margin: 1.5em auto;
+          }
+
+          .App-digits aside {
+            float: left;
+            
+          }
+        }
+
+      }
+
+      
+    }
+    
+    .App-media-cards {
+      display: flex;
+      justify-content: center;
+      margin: var(--medium-margin) 0 0 0 ;
+
+      .by-wrapper-media-card + .by-wrapper-media-card {
+        margin: 0 0 0 1.5em;
+      }
+    }
+
+    .App-wrapper-footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 980px;
+      background-color: #FFF5F7;
+      margin: -10em 0 0 0;
+
+      .App-footer-line {
+        flex-shrink: .5;
+        width: 80%;
+        height: 1px;
+        border: 1px solid #F3E1E5; 
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+
+        padding-top: 14em;
+      }
+
+      .App-footer-wrapper-welcome-block {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 10rem;
+
+        margin: var(--medium-margin) 0 0 0;
+
+        .App-footer-welcome-text {
+          grid-column: 1;
+          grid-row: 1 / span 2;
+          align-self: flex-start;
+
+          width: 350px;
+          --secondary-color-text: #FFB8C9;
+          --secondary-color-title: #FF4D77;
+          --by-title-desc: 2.5em;
+          --by-title-text: 2.5em;
+
+          p {
+            margin: 0;
+          }
+
+          h1 {
+            margin: .5em 0 0 0;
+          }
+        }
+
+        .App-footer-social-icons {
+          grid-column: 2;
+          grid-row: 1;
+
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+
+          aside + aside {
+            margin: 0 0 0 1.5em;
+          }
+        }
+
+        .App-footer-feedback {
+          grid-column: 2;
+          grid-row: 2;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: flex-end;
+
+          p {
+            margin: 0;
+          }
+
+          p + p {
+            margin: 0 0 0 .5em;
+          }
+
+          .App-footer-feedback-text {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: .9em;
+            color: #303030;
+          }
+
+          .App-footer-feedback-phone {
+            font-size: 1em;
+            color: #FF4D77;
+            line-height: 1em;
+          }
+        }
+
+      }
+
+      .App-yandex-map {
+        margin: var(--medium-margin) 0 0 0;
+      }
+
+      .App-footer-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+
+        margin: var(--medium-margin) 0 0 0;
+
+        p {
+          font-size: .9rem;
+          color: #303030;
+          margin: 0;
+
+          &:hover {
+            color: #F06787;
+          }
+        }
+
+        a + a {
+          margin: 0 0 0 1.5em;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .App-footer-copyright {
+        margin: var(--medium-margin) 0 0 0;
+        p {
+          margin: 0;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: .8rem;
+          color: #A2A1A1
+        }
+      }
+    }
+  }
+}
+
