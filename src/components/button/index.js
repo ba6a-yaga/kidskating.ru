@@ -3,6 +3,11 @@ import './index.css';
 
 class Button extends React.Component {
 
+    constructor(props) {
+        super(props);
+        
+    }
+
     clickAnimation = () => {
         
     }

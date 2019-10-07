@@ -1,0 +1,12 @@
+.by-wrapper-rotate-media-object {
+    width:100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    // overflow: hidden;
+
+    @media (max-width: 414px) {
+        justify-content: space-between;
+    }
+}

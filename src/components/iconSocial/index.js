@@ -42,9 +42,9 @@ class IconSocial extends React.Component {
 
     render() {
         return(
-            <aside className="by-wrapper-icon-social">
+            <a className="by-wrapper-icon-social" href={this.props.link} target="_blank">
                 {this.getIcon()}
-            </aside>
+            </a>
         )
     }
 }

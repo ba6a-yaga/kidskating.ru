@@ -15,3 +15,7 @@
 .by-wrapper-icon-social:hover {
     background-color: #F06787;
 }
+
+.by-wrapper-icon-social + .by-wrapper-icon-social {
+    margin-left: 1.5em;
+}

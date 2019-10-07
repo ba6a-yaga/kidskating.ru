@@ -10,11 +10,11 @@ class MediaCard extends React.Component {
         let main = this.props.main
         let footer = this.props.footer
         return(
-            <aside className="by-wrapper-media-card clearfix">
+            <aside key={this.props.k} className="by-wrapper-media-card clearfix">
                 <aside className="by-media-card-tags">
                 {tags.map((tag, i) =>
-                    <aside className="by-media-card-tag">
-                        <Button key={i} text={tag} />
+                    <aside key={i} className="by-media-card-tag">
+                        <Button text={tag} />
                     </aside>
                 )}
                 </aside>
@@ -22,7 +22,7 @@ class MediaCard extends React.Component {
                 <hr className="by-media-card-line"></hr>
                 {main !== undefined? 
                     main.map((obj, i) => 
-                        <aside className="by-media-card-main">
+                        <aside key={i} className="by-media-card-main">
                             <p>{obj.title}</p>
                             <p>{obj.text}</p>
                         </aside>

@@ -13,10 +13,14 @@
   --primary-bg: #F06787;
   --secondary-bg: #FFB8C9;
 
-  --medium-margin: 2.5rem;
+  --small-margin: 1.5rem;
+  --medium-margin: 3.5rem;
   --large-margin: 5rem;
-  font-size: calc(14px+1vw);
+  --percent-move: 50%;
+  font-size: 16px;
   box-sizing: border-box;
+
+  --mobile-width: 375px;
 }
 
 *, ::before, ::after {
@@ -27,6 +31,23 @@
     display: block;
     content: " ";
     clear: both;
+}
+
+@keyframes show {
+  from {opacity: 0; }
+  to {opacity: 100; }
+}
+@keyframes show-up-block {
+  from {transform: translateY(var(--percent-move)); opacity: 0; }
+  to {transform: translateY(0%); opacity: 100; }
+}
+@keyframes show-left-block {
+  from {transform: translateX(var(--percent-move)); opacity: 0; }
+  to {transform: translateX(0%); opacity: 100; }
+}
+@keyframes show-right-block {
+  from {transform: translateX(var(--percent-move)); opacity: 0; }
+  to {transform: translateX(0%); opacity: 100; }
 }
 
 body {
@@ -44,6 +65,12 @@ button {
 
 p {
   transition: color .25s;
+  margin: 0;
+  white-space: pre-line;
+}
+
+h1 {
+  margin: 0;
 }
 
 .App {
@@ -68,17 +95,25 @@ p {
         
         width: 176px;
         height: 48px;
+
+        @media (max-width: 1024px) {
+          margin: 1em 0 0 10em;
+        }
       }
 
       .App-burger-menu {
         grid-row: 1;
         grid-column: 1;
         z-index:107;
-        margin: 1.5em 0 0 3em;
+        margin: var(--small-margin) 0 0 3em;
 
         width: 36px;
         height: 34px;
         --by-burger-color: #FFE1E2;
+
+        @media (max-width: 1024px) {
+          margin: var(--small-margin) 0 0 var(--small-margin);
+        }
 
         .App-main-nav {
           display: flex;
@@ -104,7 +139,7 @@ p {
           }
 
           a + a {
-            margin: 1.5em 0 0 0;
+            margin: var(--medium-margin) 0 0 0;
           }
 
           
@@ -118,10 +153,15 @@ p {
     // width: 100%;
 
     .App-title-block {
+      --percent-move: 175%;
+      // animation: show-up-block .5s ease-in-out forwards;
+      // animation-delay: 2s;
+      opacity: 0;
+
       display: flex;
       justify-content: center;
       margin: 0 auto;
-      margin-top: var(--large-margin);
+      margin-top: calc(var(--large-margin) * 2);
       
       h1 {
 
@@ -129,6 +169,8 @@ p {
     }
 
     .App-secondary-banner {
+      opacity: 0;
+
       width: 100%;
       margin: var(--medium-margin) 0 0 0;
     }
@@ -138,15 +180,26 @@ p {
       width: 100%;
       
       .App-footer-description-digits {
-        height: 460px;
+        margin: var(--medium-margin) 0 0 0;
+        height: 100%;
+
+        @media (max-width: 414px) { 
+          // height: 460px;
+        }
 
         .App-wrapper-photogallery {
-          margin: -14.5em 0 0 0;
+          opacity: 1;
+          margin: var(--medium-margin) 0 0 0;
           display: grid;
           grid-template-columns: .5fr 1fr 1fr 1fr .5fr 1fr 1fr .5fr;
           grid-template-rows: .5fr 1fr 1fr;
           row-gap: .5em;
           column-gap: .5em;
+
+          @media (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: .5fr 1fr 1fr 1fr;
+          }
 
           .App-img-part {
             width: 175px;
@@ -166,16 +219,33 @@ p {
             grid-column: 2;
             grid-row: 2 / span 3;
             align-self: center;
+
+            @media (max-width: 1024px) {
+              grid-column: 3;
+              grid-row: 4;
+            }
           }
 
           .n2nd {
             grid-column: 3;
             grid-row: 2; 
+
+            @media (max-width: 1024px) {
+              grid-column: 2;
+              grid-row: 2 / span 3;
+              margin-top: 2.5em;
+            }
           }
 
           .n3th {
             grid-column: 3;
             grid-row: 3;
+
+            @media (max-width: 1024px) {
+              grid-column: 2;
+              grid-row: 3 / span 4;
+              margin-top: 2.5em;
+            }
           }
 
           .n4th {
@@ -185,23 +255,54 @@ p {
             width: 275px;
             height: 275px;
             border-radius: 20px;
+
+            @media (max-width: 1024px) {
+              width: 175px;
+              height: 175px;
+
+              grid-column: 3;
+            }
           }
           .n5th {
             grid-column: 4;
             grid-row: 3;
+
+            @media (max-width: 1024px) {
+              height: 70%;
+              margin-top: 5.5em;
+              grid-column: 3;
+              grid-row: 2 / span 2;
+              align-self: center;
+            }
           }
           .n6th {
             grid-column: 6;
             grid-row: 2;
+
+            @media (max-width: 1024px) {
+              grid-column: 4;
+              grid-row: 2 / span 3;
+              margin-top: 2.5em;
+            }
           }
           .n7th {
             grid-column: 6;
             grid-row: 3;
+
+            @media (max-width: 1024px) {
+              grid-column: 4;
+              grid-row: 3 / span 4;
+              margin-top: 2.5em;
+            }
           }
           .n8th {
             grid-column: 7;
             grid-row: 2 / span 3;
             align-self: center;
+
+            @media (max-width: 1024px) {
+              display: none;
+            }
           }
         }
       }
@@ -211,16 +312,26 @@ p {
         margin: 0;
         background-color: #FFF7F2;
         width: 100%;
-        height: 630px;
+        // height: 100%;
         overflow: hidden;
 
+        // @media (max-width: 788px) {
+        //   height: 730px;
+        // }
+
+        // @media (max-width: 678px) {
+        //   height: 760px;
+        // }
+
         .App-wrapper-description-round {
+          // float: left;
           display: block;
           grid-column: 1;
           grid-row: 1;
         }
 
         .blue {
+          
           margin: 10em 0 0 -3em;
         }
 
@@ -230,32 +341,43 @@ p {
         }
 
         .yellow {
+          width: 80%;
           margin: 18em 0 0 20%;
         }
         
         .App-description {
-          // display: flex;
-          // justify-content: center;
+          display: grid;
+          justify-items: center;
+          grid-template-rows: min-content min-content;
           grid-column: 1;
           grid-row: 1;
-          padding-top: var(--medium-margin);
   
           .App-description-text {
+            opacity: 0;
+            margin: var(--medium-margin) 0 0 0;
             color: #303030;
             font-size: 0.9em;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             width: 70%;
-            margin: 0 auto;
           }
 
           .App-digits {
-            width: calc(160px * 4);
-            margin: 1.5em auto;
+            // display: flex;
+            // flex-wrap: wrap;
+            // justify-content: space-around;
+
+
+            opacity: 0;
+            width: 70%;
+            max-width: calc((160px * 6) - 30%);
+            margin: var(--medium-margin) 0 var(--medium-margin) 0;
+
+            
           }
 
           .App-digits aside {
             float: left;
-            
+            margin-left: 1.5em;
           }
         }
 
@@ -265,12 +387,15 @@ p {
     }
     
     .App-media-cards {
-      display: flex;
-      justify-content: center;
-      margin: var(--medium-margin) 0 0 0 ;
-
-      .by-wrapper-media-card + .by-wrapper-media-card {
-        margin: 0 0 0 1.5em;
+      opacity: 0;
+      width: 100%;
+      height: 375px;
+      margin: calc(var(--medium-margin) - 1.5em) auto;
+      padding: 1.5em;
+      
+      @media (max-width: 1024px) {
+        width: 100%;
+        overflow-x: scroll;
       }
     }
 
@@ -279,7 +404,7 @@ p {
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      height: 980px;
+      height: 100%; //1010px;
       background-color: #FFF5F7;
       margin: -10em 0 0 0;
 
@@ -292,10 +417,11 @@ p {
         border-left-color: transparent;
         border-right-color: transparent;
 
-        padding-top: 14em;
+        padding-top: 13.5em;
       }
 
       .App-footer-wrapper-welcome-block {
+        opacity: 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
@@ -365,6 +491,29 @@ p {
           }
         }
 
+        @media (max-width: 1023px) {
+          grid-template-columns: repeat(auto-fill, minmax(min-content, 325px));
+          align-items: center;
+          grid-gap: 2.5em;
+
+          .App-footer-welcome-text {
+            text-align: center;
+            grid-column: 1;
+            grid-row: 1 / span 2;
+          }
+  
+          .App-footer-social-icons {
+            grid-column: auto;
+            grid-row: auto;
+            justify-self: center;
+          }
+  
+          .App-footer-feedback {
+            grid-column: auto;
+            grid-row: auto;
+            justify-self: center;
+          }
+        }
       }
 
       .App-yandex-map {
@@ -402,7 +551,7 @@ p {
       .App-footer-copyright {
         margin: var(--medium-margin) 0 0 0;
         p {
-          margin: 0;
+          margin: 0 0 2.5em 0;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
           font-size: .8rem;
           color: #A2A1A1
@@ -412,3 +561,149 @@ p {
   }
 }
 
+@media (max-width: 414px) { 
+  .App {
+
+    // --small-margin: 1.5rem;
+    // --medium-margin: 3.5rem;
+    --large-margin: 2.5rem;
+
+    .App-header {
+      .App-header-banner{
+
+        .App-logo {
+          z-index: 4;
+          margin: 1em 0 0 10em;
+        }
+
+        .App-burger-menu {
+          margin: var(--small-margin) 0 0 1.5em;
+
+          .App-main-nav {
+            font-size: calc(100% - .5vh);
+          }
+        }
+      }
+    }
+
+    .App-main {
+      .App-wrapper-description {
+        .App-wrapper-description-digits {
+          height: 100%;
+          .App-description {
+            margin: 0 0 0 1.5em;
+            width: calc(100vw - 3em);
+            
+            .App-description-text {
+              width:100%;
+            }
+
+            .App-digits {
+              width:100%;
+            }
+          }
+        }
+
+        .App-footer-description-digits {
+
+          .App-wrapper-photogallery {
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            row-gap: .5em;
+            column-gap: .5em;
+
+            .App-img-part {
+              width: 150px;
+              height: 150px;
+              margin: 0;
+              display: block;
+            }
+  
+            .n1st {
+              grid-column: 1 / span 2;
+              grid-row: 1;
+              justify-self: center;
+            }
+  
+            .n2nd {
+              grid-column: 1;
+              grid-row: 2; 
+              justify-self: flex-end;
+            }
+  
+            .n3th {
+              grid-column: 2;
+              grid-row: 2;
+            }
+
+            .n4th {
+              grid-column: 1;
+              grid-row: 3 / span 4;
+              justify-self: flex-end;
+            }
+            .n5th {
+              grid-column: 2;
+              grid-row: 3;
+            }
+            .n6th {
+              grid-column: 1;
+              grid-row: 4;
+              justify-self: flex-end;
+            }
+            .n7th {
+              grid-column: 2;
+              grid-row: 4;
+            }
+            .n8th {
+              grid-column: 1 / span 2;
+              grid-row: 5;
+              justify-self: center;
+            }
+          }
+        }
+      }
+
+      .margin-for-mobile {
+        height: 325px;
+      }
+
+      .App-title-block {
+        h1 {
+          font-size: 2em;
+          text-align: center;
+        }
+      }
+
+      .App-media-cards {
+        // width: calc(100% - 3em);
+        // height: 296px;
+        overflow-x: scroll;
+        width: 100%;
+        height: 375px;
+        margin-top: calc(var(--medium-margin) - 1.5em);
+        padding: 1.5em;
+      }
+
+      .App-wrapper-footer {
+        height: 100%;
+        .App-yandex-map {
+          // width: 100%;
+        }
+
+        .App-footer-nav {
+          width: 100%;
+          flex-direction: column;
+          justify-content: center;
+          
+          a + a {
+            margin: 1.5em 0 0 0;
+          }
+        }
+
+      }
+    }
+    
+
+
+  }
+}

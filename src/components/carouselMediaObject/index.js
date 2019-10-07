@@ -6,19 +6,49 @@ import Pagination from '../pagination'
 
 class CarouselMediaObject extends React.Component {
 
-    state = {
-        currentImage: 0,
-        counterImage: 1,
-        userAgent: window.navigator.userAgent,
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentImage: 0,
+            counterImage: 1,
+            userAgent: window.navigator.userAgent,
+            nameObject: this.props.nameObject,
+            touchStartX: 0,
+            touchEndX: 0,
+        };
+    }
+
+    componentDidMount() {
+        let banner = document.querySelectorAll(`.App-secondary-banner.${this.state.nameObject} .by-carousel-media-object`)
+        banner.forEach((el)=>{
+                el.addEventListener('touchstart', e => this.setState({touchStartX: e.changedTouches[0].screenX}))
+                el.addEventListener('touchend', e => {
+                this.setState({touchEndX: e.changedTouches[0].screenX })
+                this.detectingMove()
+            })
+        })
+        // banner.addEventListener('touchmove', e => e.preventDefault())
+    }
+
+    detectingMove = () => {
+        // move on right
+        if (this.state.touchStartX > this.state.touchEndX) {
+            this.prevImage()
+        }
+        // move on left
+        if (this.state.touchStartX < this.state.touchEndX) {
+            this.nextImage()
+            
+        }
     }
 
     prevImage = () => {
 
         let re = /Safari|Firefox|Chrome/
         let found = this.state.userAgent.match(re)
-        let media = document.getElementsByClassName('by-carousel-media-object')
+        let media = document.querySelectorAll(`.App-secondary-banner.${this.state.nameObject} .by-carousel-media-object`)
 
-        if (found !== null && found.length > 0 && found[0] !== 'Safari' && media.length > 1) {
+        if (found !== null && found.length > 0 && found[0] !== 'Safari' && media !== null) {
             media[this.state.currentImage].animate([
                 {transform: 'translateX(0%)'},
                 {transform: 'translateX(130%)'},
@@ -70,7 +100,7 @@ class CarouselMediaObject extends React.Component {
 
         let re = /Safari|Firefox|Chrome/
         let found = this.state.userAgent.match(re)
-        let media = document.getElementsByClassName('by-carousel-media-object')
+        let media = document.querySelectorAll(`.App-secondary-banner.${this.state.nameObject} .by-carousel-media-object`)
 
         if (found !== null && found.length > 0 && found[0] !== 'Safari' && media.length > 1) {
             media[this.state.currentImage].animate([
@@ -122,6 +152,7 @@ class CarouselMediaObject extends React.Component {
 
     render() {
         let media = this.props.media
+        
 
         return(
             <aside className="by-wrapper-carousel-media-object">
@@ -139,10 +170,16 @@ class CarouselMediaObject extends React.Component {
                 {media.map((obj, i) =>
                     i == 0?
                     <aside key={i} className="by-carousel-media-object">
-                        <span className="by-carousel-media-object-avatar">
-                            <img className="by-carousel-media-object-avatar-img" src={obj.avatar} rel="noopener noreferrer"/>
-                        </span>
-                        <p className="by-carousel-media-object-note">{obj.note}</p>
+                        {obj.avatar!==null?
+                            <span className="by-carousel-media-object-avatar">
+                                <img className="by-carousel-media-object-avatar-img" src={obj.avatar} rel="noopener noreferrer"/>
+                            </span>
+                            :
+                            null
+                        }
+                        {obj.note.map((el, i) => 
+                            <p key={i} className="by-carousel-media-object-note">{el}</p>
+                        )}
                         <aside className="by-carousel-media-object-wrapper-sign">
                             <p className="by-carousel-media-object-sign">{obj.sign[0]}</p>
                             <p className="by-carousel-media-object-sign">{obj.sign[1]}</p>
@@ -150,10 +187,16 @@ class CarouselMediaObject extends React.Component {
                     </aside>
                     :
                     <aside key={i} className="by-carousel-media-object invise">
-                        <span className="by-carousel-media-object-avatar">
-                            <img className="by-carousel-media-object-avatar-img" src={obj.avatar} rel="noopener noreferrer"/>
-                        </span>
-                        <p className="by-carousel-media-object-note">{obj.note}</p>
+                        {obj.avatar!==null?
+                            <span className="by-carousel-media-object-avatar">
+                                <img className="by-carousel-media-object-avatar-img" src={obj.avatar} rel="noopener noreferrer"/>
+                            </span>
+                            :
+                            null
+                        }
+                        {obj.note.map((el, i) => 
+                            <p key={i} className="by-carousel-media-object-note">{el}</p>
+                        )}
                         <aside className="by-carousel-media-object-wrapper-sign">
                             <p className="by-carousel-media-object-sign">{obj.sign[0]}</p>
                             <p className="by-carousel-media-object-sign">{obj.sign[1]}</p>
@@ -161,7 +204,6 @@ class CarouselMediaObject extends React.Component {
                     </aside>
                 )}
                 </aside>
-                
                 <aside className="by-carousel-pagination">
                     <Pagination count={media.length} active={this.state.counterImage} />
                 </aside>
