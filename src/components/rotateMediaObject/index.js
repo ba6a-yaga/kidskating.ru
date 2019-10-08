@@ -14,7 +14,7 @@ class RotateMediaObject extends React.Component {
             userAgent: window.navigator.userAgent,
             touchStartX: 0,
             touchEndX: 0,
-        };
+        }; 
     }
 
     componentDidMount() {

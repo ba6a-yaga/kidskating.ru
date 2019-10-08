@@ -146,7 +146,7 @@ class App extends React.Component {
                   "Кандидат в мастера спорта, тренерский стаж с 2014 года.",
                   "Образование - РГУФКСМиТ (ГЦОЛИФК) с отличием, \n2019 г. В этом же году поступила на заочное отделение магистратуры.",
                   "Призёр всероссийских и международных соревнований в одиночном и синхронном катании.",
-                "- Проведение групповых и индивидуальных тренировок\n- Проведение летних сборов \n- Руководство командой во время соревнований \n(Кубок России, Первенство России)"], 
+                "- Проведение групповых и индивидуальных тренировок\n- Проведение летних сборов \n- Руководство командой по синхронному катанию во время соревнований \n(Кубок России, Первенство России)"], 
                 sign: ["Анастасия", "Кирилловна"]},
               {avatar: dariaAleksandrovna, note: ["Кандидат в мастера спорта, тренерский стаж с 2013 года","Образование - РГУФКСМиТ (ГЦОЛИФК) с отличием, \n2019 г.", 
               "Участница международных соревнований, призёр всероссийских соревнований в одиночном катании.",
@@ -196,12 +196,9 @@ class App extends React.Component {
                 </p>
               
                 <aside className="App-digits">
-                    <DigitPresent digits="96" unit="чел." text="В команде наставников" />
-                    <DigitPresent digits="97" unit="чел." text="В команде наставников" />
-                    <DigitPresent digits="98" unit="чел." text="В команде наставников" />
-                    <DigitPresent digits="99" unit="чел." text="В команде наставников" />
-                    <DigitPresent digits="100" unit="чел." text="В команде наставников" />
-                    <DigitPresent digits="101" unit="чел." text="В команде наставников" />
+                    <DigitPresent digits="5" unit="чел." text="В команде тренеров" />
+                    <DigitPresent digits="3" unit="чел." text="На 1 тренера в группе" />
+                    <DigitPresent digits="50" unit="" text="Довольных клиентов" />
                 </aside>
               </aside>
             </div>
@@ -264,8 +261,8 @@ class App extends React.Component {
   
           <aside className="App-media-cards class-media-cards">
             <RotateMediaObject className="class-media-cards">
-              <MediaCard k={1} tags={["группа 1"]} header="ул. Яблочкова, 7, ЛД «АПИА АРЕНА»" footer={["+7(916)243-13-21","noreply@mail.ru"]} main={[{title: "Пн-Пт", text: "10:00 - 11:00"},{title: "Сб-Вс", text: "Выходной"}]} />
-              <MediaCard k={2} tags={["группа 2"]} header="ул. Яблочкова, 7, ЛД «АПИА АРЕНА»" footer={["+7(968)098-72-32","noreply@mail.ru"]} main={[{title: "Пн-Пт", text: "11:00 - 12:00"},{title: "Сб-Вс", text: "Выходной"}]} />
+              <MediaCard k={1} tags={["группа 1"]} header="ул. Яблочкова, 7, ЛД «АПИА АРЕНА»" footer={["+7(916)243-13-21","kidsskatingclub@gmail.com"]} main={[{title: "Пн-Пт", text: "10:00 - 11:00"},{title: "Сб-Вс", text: "Выходной"}]} />
+              <MediaCard k={2} tags={["группа 2"]} header="ул. Яблочкова, 7, ЛД «АПИА АРЕНА»" footer={["+7(968)098-72-32","kidsskatingclub@gmail.com"]} main={[{title: "Пн-Пт", text: "11:00 - 12:00"},{title: "Сб-Вс", text: "Выходной"}]} />
             </RotateMediaObject>
           </aside>
   
