@@ -71,6 +71,7 @@ p {
 
 h1 {
   margin: 0;
+  white-space: pre-line;
 }
 
 .App {
@@ -124,6 +125,7 @@ h1 {
           
 
           a {
+            cursor: pointer;
             transition: color .25s;
             color: #F06787;
             font-size: 3em;
@@ -544,6 +546,7 @@ h1 {
         }
 
         a {
+          cursor: pointer;
           text-decoration: none;
         }
       }

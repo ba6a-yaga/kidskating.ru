@@ -230,7 +230,7 @@ class Banner extends React.Component {
                 <this.ShapeForTablet />
                 <this.Shape />
                 <aside className="by-banner-title">
-                    <Title text="Заголовок новости" desc="может быть длинным и при этом с описанием" />
+                    <Title text={this.props.title} desc={this.props.text} />
                 </aside>
                 <aside className="by-banner-control second">
                     <Button text="Назад" iconFloat="left" onClick={this.prevImage}>

@@ -37,15 +37,26 @@ import { YMaps, Map, Placemark } from 'react-yandex-maps';
 
 class App extends React.Component {
 
-  state = {
-    appWrapperDescription: null,
-    appDigits: null,
-    appWrapperPhotogallery: null,
-    appMediaCards: null,
-    appFooterWrapperWelcomeBlock: null,
-    appTitleBlock: null,
-    appSecondaryBanner: null,
+  constructor(props) {
+    super(props)
+    this.burgerMenu = React.createRef()
+    this.state = {
+      appWrapperDescription: null,
+      appDigits: null,
+      appWrapperPhotogallery: null,
+      appMediaCards: null,
+      appFooterWrapperWelcomeBlock: null,
+      appTitleBlock: null,
+      appSecondaryBanner: null,
+      data: {
+        banner: {
+          title: "Приветствуем Вас\nу нас на сайте!",
+          text: "Мы только открылись и будем рады видеть Вас на наших тренировках! На все Ваши вопросы мы с радостью ответим по любому указанному номеру телефона или на нашей почте! Так же ждём Вас\nу нас в Инстаграмe!",
+        },
+      },
+    }
   }
+  
 
   componentDidMount() {
     window.addEventListener("scroll", this.scrollEventHandler, true)
@@ -108,22 +119,48 @@ class App extends React.Component {
     }
   }
 
+  scrollTo = (id) => {
+    console.log(id)
+    let el = document.querySelector(`#${id}`)
+    if (el != null) el.scrollIntoView({behavior: "smooth"})
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <aside className="App-header-banner">
-            <Banner media={[banner3,banner2,banner1]}>
+            <Banner title={this.state.data.banner.title} text={this.state.data.banner.text} media={[banner3,banner2,banner1]}>
               <aside className="App-logo">
                 <Logo />
               </aside>
               <aside className="App-burger-menu">
-                <BurgerMenu>
+                <BurgerMenu ref={this.burgerMenu}>
                   <aside className="App-main-nav">
-                    <a href="#"><p>Преподователи</p></a>
-                    <a href="#"><p>О нас</p></a>
-                    <a href="#"><p>Расписание</p></a>
-                    <a href="#"><p>Контакты</p></a>
+                  <a onClick={() => {
+                    this.burgerMenu.current.openMenu()
+                    setTimeout(()=>{
+                      this.scrollTo("App-to-trainers")
+                    },1000)
+                  }} ><p>Преподователи</p></a>
+                  <a onClick={() => {
+                    this.burgerMenu.current.openMenu()
+                    setTimeout(()=>{
+                      this.scrollTo("App-to-description")
+                    },1000)
+                  }}><p>О нас</p></a>
+                  <a onClick={() => {
+                    this.burgerMenu.current.openMenu()
+                    setTimeout(()=>{
+                      this.scrollTo("App-to-time")
+                    },1000)
+                  }}><p>Расписание</p></a>
+                  <a onClick={() => {
+                    this.burgerMenu.current.openMenu()
+                    setTimeout(()=>{
+                      this.scrollTo("App-to-contacts")
+                    },1000)
+                  }}><p>Контакты</p></a>
                   </aside>
                 </BurgerMenu>
               </aside>
@@ -134,7 +171,7 @@ class App extends React.Component {
         </header>
         <main className="App-main">
   
-          <aside className="App-title-block">
+          <aside id="App-to-trainers" className="App-title-block">
             <TitleBlock text="Кто мы такие?" />
           </aside>
   
@@ -188,7 +225,7 @@ class App extends React.Component {
                 />
               </svg> */}
   
-              <aside className="App-description" >
+              <aside id="App-to-description" className="App-description" >
                 <p className="App-description-text">
                 Главное отличие нашего клуба фигурного катания от других - маленькое количество детей в группах. В большинстве школ в группы начальной подготовки набирают от 20 детей и пытаются их научить кататься. У нас же максимальное количество человек в группе 3-4. Это позволяет наиболее качественно обучить ребёнка выполнению базовых элементов на льду. 
                 Наши тренеры имеют большой опыт в работе со спортивными и досуговыми группами и считают, что чтобы прогресс был заметен, необходимо делать акцент на занятиях в мини-группах. 
@@ -255,7 +292,7 @@ class App extends React.Component {
             ]}/>
           </aside>
               
-          <aside className="App-title-block">
+          <aside id="App-to-time" className="App-title-block">
             <TitleBlock text="Подберем удобное время занятий?" />
           </aside>
   
@@ -279,7 +316,7 @@ class App extends React.Component {
                 <IconSocial social="instagram" link="https://instagram.com/kids_skating_club" />
                 <IconSocial social="twitter" link="" />
               </aside>
-              <aside className="App-footer-feedback">
+              <aside id="App-to-contacts" className="App-footer-feedback">
                 <p className="App-footer-feedback-text">Звоните прямо сейчас</p>
                 <p className="App-footer-feedback-phone">
                 +7 (916) 243-13-21
@@ -298,10 +335,10 @@ class App extends React.Component {
             </aside>
   
             <aside className="App-footer-nav">
-              <a href="#"><p>Преподователи</p></a>
-              <a href="#"><p>О нас</p></a>
-              <a href="#"><p>Расписание</p></a>
-              <a href="#"><p>Контакты</p></a>
+              <a onClick={() => {this.scrollTo("App-to-trainers")}} ><p>Преподователи</p></a>
+              <a onClick={() => {this.scrollTo("App-to-description")}}><p>О нас</p></a>
+              <a onClick={() => {this.scrollTo("App-to-time")}}><p>Расписание</p></a>
+              <a onClick={() => {this.scrollTo("App-to-contacts")}}><p>Контакты</p></a>
             </aside>
   
             <aside className="App-footer-copyright">
